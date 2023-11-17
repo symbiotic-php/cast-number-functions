@@ -1,0 +1,51 @@
+{
+  "name": "symbiotic/cast-number-functions",
+  "description": "Converting strings to numbers with support for monetary formats",
+  "license": [
+    "BSD-3-Clause"
+  ],
+  "homepage": "https://symbioticphp.com",
+  "authors": [
+    {
+      "name": "Sergei Surkov",
+      "role": "Developer"
+    }
+  ],
+  "version": "1.0.0",
+  "type": "library",
+  "keywords": [
+    "cast array values to numners",
+    "cast iterable values to numners",
+    "number casting",
+    "monetary formants in numbers",
+    "cast number function"
+  ],
+  "require": {
+    "php": "^8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.3.5",
+    "friendsofphp/php-cs-fixer": "^3.22",
+    "vimeo/psalm": "^5.1"
+  },
+  "autoload": {
+    "files": [
+      "src/cast_number.php"
+    ]
+  },
+  "scripts": {
+    "checkAll": [
+      "phpunit",
+      "psalm",
+      "@phpcs:check"
+    ],
+    "phpcs": "@phpcs:check",
+    "phpcs:check": "php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes --dry-run",
+    "phpcs:fix": "php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes",
+    "test": "@test:unit",
+    "test:unit": "phpunit --testdox",
+    "psalm": "@psalm:check",
+    "psalm:check": "psalm --no-cache",
+    "psalm:fix": "psalm --no-cache --alter --issues=MismatchingDocblockReturnType,MissingReturnType,MismatchingDocblockParamType,InvalidReturnType,MissingClosureReturnType,InvalidNullableReturnType,MissingParamType"
+  }
+}
